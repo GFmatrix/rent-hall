@@ -1,0 +1,85 @@
+{% load static %}
+<!-- Start header area -->
+<header class="header__section">
+    <div class="header__sticky">
+        <div class="container-fluid">
+            <div class="main__header d-flex justify-content-between align-items-center">
+                <div class="offcanvas__header--menu__open ">
+                    <a class="offcanvas__header--menu__open--btn" href="javascript:void(0)" data-offcanvas>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="ionicon offcanvas__header--menu__open--svg" viewBox="0 0 512 512"><path fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M80 160h352M80 256h352M80 352h352"/></svg>
+                        <span class="visually-hidden">Offcanvas Menu Open</span>
+                    </a>
+                </div>
+                <div class="main__logo">
+                    <a class="main__logo--link" href="{% url 'index' %}">
+                        <img class="main__logo--img" width='50px' src="{% static 'assets/img/logo/logo.png' %}" alt="logo-img">
+                    </a>
+                </div>
+                <div class="main__menu d-none d-lg-block mx-auto">
+                    <nav class="main__menu--navigation">
+                        <ul class="main__menu--wrapper d-flex">
+                            <li class="main__menu--items">
+                                <a class="main__menu--link" href="{% url "index" %}"><svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5.5 0L0 4.125V11H3.72581V8.59381C3.72581 7.64165 4.51713 6.87506 5.5 6.87506C6.48287 6.87506 7.27419 7.64165 7.27419 8.59381V11H11V4.125L5.5 0Z" fill="#FA4A4A"/>
+                                    </svg>
+                                    Bosh sahifa
+                                </a>
+                            </li>
+                            <li class="main__menu--items">
+                                <a class="main__menu--link" href="{% url 'application-status' %}"> Ariza holatini tekshirish </a> 
+                            </li>
+                            <li class="main__menu--items">
+                                <a class="main__menu--link" href="/static/assets/doc/shablon.doc"> Shartnoma namunasi </a> 
+                            </li>
+
+                            {% comment %} <li class="main__menu--items">
+                                <a class="main__menu--link" href="#"> Pages </a>  
+                                <svg class="menu__arrowdown--icon" xmlns="http://www.w3.org/2000/svg" width="10" height="7" viewBox="0 0 12 7.41">
+                                    <path  d="M16.59,8.59,12,13.17,7.41,8.59,6,10l6,6,6-6Z" transform="translate(-6 -8.59)" fill="currentColor" opacity="0.7"/>
+                                </svg>
+                                <ul class="sub__menu">
+                                    <li class="sub__menu--items"><a href="about.html" class="sub__menu--link">About Us</a></li>
+                                    <li class="sub__menu--items"><a href="contact.html" class="sub__menu--link">Contact Us</a></li>
+                                    <li class="sub__menu--items"><a href="project.html" class="sub__menu--link">Project</a></li>
+                                    <li class="sub__menu--items"><a href="project-details.html" class="sub__menu--link">Project Details</a></li>
+                                    <li class="sub__menu--items"><a href="services-details.html" class="sub__menu--link">Services Details</a></li>
+                                    <li class="sub__menu--items"><a href="login.html" class="sub__menu--link">Login</a></li>
+                                    <li class="sub__menu--items"><a href="sign-up.html" class="sub__menu--link">Sing Up</a></li>
+                                    <li class="sub__menu--items"><a href="404.html" class="sub__menu--link">Error 404</a></li>
+                                </ul>
+                            </li> {% endcomment %}
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- End header area -->
+
+<!-- Start Offcanvas header menu -->
+<div class="offcanvas__header">
+    <div class="offcanvas__inner">
+        <div class="offcanvas__logo">
+            <a class="offcanvas__logo_link" href="{% url 'index' %}">
+                <img src="{% static 'assets/img/logo/logo.png' %}" alt="Logo-img" width="158" height="36">
+            </a>
+            <button class="offcanvas__close--btn" data-offcanvas>close</button>
+        </div>
+        
+        <nav class="offcanvas__menu">
+            <ul class="offcanvas__menu_ul">
+                <li class="offcanvas__menu_li">
+                    <a class="offcanvas__menu_item" href="{% url 'index' %}">Bosh sahifa</a>
+                </li>
+                <li class="offcanvas__menu_li">
+                    <a class="offcanvas__menu_item" href="{% url 'application-status' %}">Ariza holatini tekshirish</a>
+                </li>
+                <li class="offcanvas__menu_li">
+                    <a class="offcanvas__menu_item" href="/static/assets/doc/shablon.doc">Shartnoma namunasi</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<!-- End Offcanvas header menu -->

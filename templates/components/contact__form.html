@@ -1,0 +1,83 @@
+<div class="widget__step mb-30 ">
+    <h2 class="widget__step--title {% if not hall.availability %}disabled{% endif %}">Ariza yuborish</h2>
+    <div class="widget__form">
+        <form method="POST" {% if not hall.availability %}class="disabled"{% endif %}>
+            {% csrf_token %}
+            <select name="hall" hidden>
+                <option value="{{ hall.id }}" selected></option>
+            </select>
+            <div class="widget__form--input mb-20">
+                <input class="widget__form--input__field" placeholder="Tashkilot nomi, 'Tashkilot' MCHJ" type="text" name="name" required>
+            </div>
+            <div class="widget__form--input mb-20">
+                <input class="widget__form--input__field" placeholder="Tashkilot rahbari, A.A.Aliev" type="text" name="director" required>
+            </div>
+            <div class="widget__form--input mb-20">
+                <input class="widget__form--input__field" placeholder="Telefon raqam, (90) 123 00 00" type="text" name="phone_number" onkeyup="formatPhoneNumber(this)" required>
+            </div>
+            <div class="widget__form--input mb-20">
+                <input class="widget__form--input__field" placeholder="Elektron pochta" type="email" name="email" required>
+            </div>
+            <div class="widget__form--input mb-20">
+                <input class="widget__form--input__field" placeholder="INN" type="number" name="inn" required>
+            </div>
+            <div class="widget__form--input mb-20">
+                <input class="widget__form--input__field" placeholder="Hisob raqam (Sh/H.r)" type="number" name="account_number" required>
+            </div>
+            <div class="widget__form--input mb-20">
+                <input class="widget__form--input__field" placeholder="Manzil" type="text" name="address" required>
+            </div>
+            <div class="widget__form--input">
+                <input class="widget__form--input__field" placeholder="Ijara sanasi" type="text" name="date_range" id="date_picker" required>
+            </div>
+            <button class="widget__form--btn solid__btn" type="submit">Yuborish</button>
+        </form>
+    </div>
+</div>
+
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+{% endblock styles %}
+
+{% block scripts %}
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('date_picker').value=''
+  })
+
+  $('#date_picker').daterangepicker({
+    showDropdowns: true,
+    alwaysShowCalendars: true,
+    locale: {
+      "format": 'YYYY-MM-DD',
+      "cancelLabel": 'Bekor qilish',
+      "separator": " - ",
+      "applyLabel": "Tasdiqlash",
+      "fromLabel": "Dan",
+      "toLabel": "gacha",
+      "customRangeLabel": "Tanlash",
+      "weekLabel": "H",
+      "daysOfWeek": [ "Ya", "Du", "Se", "Ch", "Pa", "Ju", "Sh"],
+      "monthNames": [
+          "Yanvar",
+          "Fevral",
+          "Mart",
+          "Aprel",
+          "May",
+          "Iyun",
+          "Iyul",
+          "Avgust",
+          "Sentyabr",
+          "Oktyabr",
+          "Noyabr",
+          "Dekabr"
+      ],
+      "firstDay": 1
+    }
+  });
+</script>
+{% endblock scripts %}

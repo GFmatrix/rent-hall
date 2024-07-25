@@ -1,0 +1,107 @@
+{% extends "base.html" %} {% load static %} 
+
+{% block content %} 
+
+{% include "header.html" %}
+
+<main class="main__content_wrapper">
+  <!-- Breadcrumb section -->
+  <section class="breadcrumb__section py-5">
+    <div class="container">
+      <div class="breadcrumb__content text-center py-5">
+        <h1 class="breadcrumb__title h2 mb-0"><span>Ariza</span> holati</h1>
+      </div>
+    </div>
+  </section>
+  <!-- Breadcrumb section .\ -->
+
+  <section class="listing__details--section section--padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="listing__details--wrapper">
+                    <div class="listing__details--main__content pt-3">
+                        <div class="listing__details--content__step properties__info row mb-80">
+                            <!-- <h3 class="listing__details--content__title mb-40">Holati:</h3> -->
+                            {% if messages %}
+                            <div class="alert alert-info col-12 col-lg-12 mb-40 mx-auto text-center" role="alert">
+                                {% for message in messages %}
+                                  {{ message }}
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-12 col-lg-8 mb-20 m-lg-0 d-flex align-items-center" >
+                                        <div class="alert alert-{% if application.status == 'accept' %}success{% elif application.status == 'review' %}secondary{% elif application.status == 'reject' %}danger{% endif %} text-center mb-0 w-100" role="alert">
+                                            {{ application.get_status_display }}
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-4">
+                                        <div class="text-center">
+                                            <a class="reviews__comment--btn solid__btn m-0" href="{% url 'application_file' application.application_id %}">Shartnoma Yuklash
+                                                <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.292 16.706a1 1 0 0 0 1.416 0l3-3a1 1 0 0 0-1.414-1.414L13 13.586V4a1 1 0 0 0-2 0v9.586l-1.293-1.293a1 1 0 0 0-1.414 1.414zM17 19H7a1 1 0 0 0 0 2h10a1 1 0 0 0 0-2z" style="fill:#fff"/></svg>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="listing__details--content__step properties__info mb-80">
+                            <h3 class="listing__details--content__title mb-40">Ariza Ma'lumotlar:</h3>
+                            <ul class="properties__details--info__wrapper d-flex">
+                                <li class="properties__details--info__list d-flex justify-content-between">
+                                    <span class="properties__details--info__title">Ariza ID:</span>
+                                    <span class="properties__details--info__subtitle">{{ application.application_id }}</span>
+                                </li>
+                                <li class="properties__details--info__list d-flex justify-content-between">
+                                    <span class="properties__details--info__title">Ijara zali:</span>
+                                    <span class="properties__details--info__subtitle"><a href="{{ application.hall.get_absolute_url }}" class="text-decoration-underline">{{ application.hall }}</a></span>
+                                </li>
+                                <li class="properties__details--info__list d-flex justify-content-between">
+                                    <span class="properties__details--info__title">Tashkilot nomi:</span>
+                                    <span class="properties__details--info__subtitle">{{ application.name }}</span>
+                                </li>
+                                <li class="properties__details--info__list d-flex justify-content-between">
+                                    <span class="properties__details--info__title">Tashkilot rahbari:</span>
+                                    <span class="properties__details--info__subtitle">{{ application.director }}</span>
+                                </li>
+                                <li class="properties__details--info__list d-flex justify-content-between">
+                                    <span class="properties__details--info__title">Telefon raqam:</span>
+                                    <span class="properties__details--info__subtitle">{{ application.phone_number }}</span>
+                                </li>
+                                <li class="properties__details--info__list d-flex justify-content-between">
+                                    <span class="properties__details--info__title">Elektron pochta:</span>
+                                    <span class="properties__details--info__subtitle">{{ application.email }}</span>
+                                </li>
+                                <li class="properties__details--info__list d-flex justify-content-between">
+                                    <span class="properties__details--info__title">Manzil:</span>
+                                    <span class="properties__details--info__subtitle">{{ application.address }}</span>
+                                </li>
+                                <li class="properties__details--info__list d-flex justify-content-between">
+                                    <span class="properties__details--info__title">INN:</span>
+                                    <span class="properties__details--info__subtitle">{{ application.inn }}</span>
+                                </li>
+                                <li class="properties__details--info__list d-flex justify-content-between">
+                                    <span class="properties__details--info__title">Hisob raqam:</span>
+                                    <span class="properties__details--info__subtitle">{{ application.account_number }}</span>
+                                </li>
+                                <li class="properties__details--info__list d-flex justify-content-between">
+                                    <span class="properties__details--info__title">Ijara sanalari:</span>
+                                    <span class="properties__details--info__subtitle">{{ application.date_from }} - {{ application.date_to }}</span>
+                                </li>
+                            </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+  {% include "footer.html" %}
+</main>
+
+{% endblock content %}

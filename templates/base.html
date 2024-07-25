@@ -1,0 +1,69 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}{% endblock title %}</title>
+  <meta name="description" content="Morden Bootstrap HTML5 Template">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" type="image/x-icon" href="{% static "assets/img/favicon.ico" %}">
+  <meta name="title" content="O‘zbekiston Respublikasi Madaniyat vazirligi">
+  <meta name="description" content="Konsert zallar ijarasi yagona platformasi">
+  <meta name="keywords" content="o‘zbekiston, uzbekistan, uz, davlat, tashkilotlar, konsert, ijara, zallar, zal, portal, xizmatlar">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ijara.madaniyat.uz/">
+  <meta property="og:title" content="O‘zbekiston Respublikasi Madaniyat vazirligi">
+  <meta property="og:description" content="O‘zbekiston Respublikasi Hukumati portali yagona platformasi">
+  <meta property="og:image" content="{% static "assets/img/favicon.ico" %}">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://ijara.madaniyat.uz/">
+  <meta property="twitter:title" content="O‘zbekiston Respublikasi Madaniyat vazirligi">
+  <meta property="twitter:description" content="Konsert zallar ijarasi yagona platformasi">
+  <meta property="twitter:image" content="{% static "assets/img/favicon.ico" %}">
+  <link rel="canonical" href="https://ijara.madaniyat.uz/">  
+
+   <!-- ======= All CSS Plugins here ======== -->
+  <link rel="stylesheet" href="{% static 'assets/css/plugins/swiper-bundle.min.css' %}">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;family=Nunito:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+
+  
+  <!-- Plugin css -->
+  <link rel="stylesheet" href="{% static 'assets/css/vendor/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/css/plugins/swiper-bundle.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/css/plugins/glightbox.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/css/plugins/aos.css' %}">
+
+  <!-- Custom Style CSS -->
+  <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+  {% block styles %}{% endblock styles %}
+
+</head>
+
+<body>
+  <!-- Preloader start -->
+  <div id="preloader">
+    <div class="loader--border"></div>
+  </div>
+  <!-- Preloader end -->
+
+  {% block content %}{% endblock content %}
+
+  <!-- Scroll top bar -->
+  <button id="scroll__top"><svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round"  stroke-width="48" d="M112 244l144-144 144 144M256 120v292"/></svg></button>
+    
+  <!-- All Script JS Plugins here  -->
+  <script src="{% static 'assets/js/vendor/popper.js' %}" defer="defer"></script>
+  <script src="{% static 'assets/js/vendor/bootstrap.min.js' %}" defer="defer"></script>
+  <script src="{% static 'assets/js/plugins/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'assets/js/plugins/glightbox.min.js' %}"></script>
+  <script src="{% static 'assets/js/plugins/aos.js' %}"></script>
+ 
+ 
+  <!-- Customscript js -->
+  <script src="{% static 'assets/js/script.js' %}"></script>
+  {% block scripts %}{% endblock scripts %}
+ 
+   
+  </body>
+ 
+</html>

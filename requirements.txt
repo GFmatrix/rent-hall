@@ -1,0 +1,4 @@
+docxtpl
+Django
+django-jazzmin
+Pillow

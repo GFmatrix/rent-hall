@@ -1,0 +1,249 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+{% include "header.html" %}
+
+<main class="main__content_wrapper">
+    
+    <!-- Breadcrumb section -->
+    <section class="breadcrumb__section py-5">
+        <div class="container">
+            <div class="breadcrumb__content text-center py-5">
+                <h1 class="breadcrumb__title h2 mb-0"><span>Konsert zal</span> ijara</h1>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb section .\ -->
+
+    <!-- Listing page section -->
+    <section class="listing__page--section section--padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="listing__page--wrapper">
+                        <div class="listing__header d-flex justify-content-between align-items-center">
+                            <div class="listing__header--left w-75">
+                                
+                                <input class="listing__header--widget__search w-100" placeholder="Search product" type="text">
+                                
+                            </div>
+                            <div class="listing__header--right d-flex align-items-center">
+                                <div class="recently__select d-flex align-items-center">
+                                    <button class="btn recently__select--icon"><svg width="16" height="17" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9.10714 9.54464C9.89286 8.75893 10.2857 7.81548 10.2857 6.71429C10.2857 5.61309 9.89286 4.67262 9.10714 3.89286C8.32738 3.10714 7.38691 2.71428 6.28571 2.71428C5.18452 2.71428 4.24107 3.10714 3.45536 3.89286C2.6756 4.67262 2.28571 5.61309 2.28571 6.71429C2.28571 7.81548 2.6756 8.75893 3.45536 9.54464C4.24107 10.3244 5.18452 10.7143 6.28571 10.7143C7.38691 10.7143 8.32738 10.3244 9.10714 9.54464ZM14.8571 14.1429C14.8571 14.4524 14.744 14.7202 14.5179 14.9464C14.2917 15.1726 14.0238 15.2857 13.7143 15.2857C13.3929 15.2857 13.125 15.1726 12.9107 14.9464L9.84822 11.8929C8.78274 12.631 7.59524 13 6.28571 13C5.43452 13 4.61905 12.8363 3.83929 12.5089C3.06548 12.1756 2.39583 11.7292 1.83036 11.1696C1.27083 10.6042 0.824405 9.93452 0.491071 9.16071C0.16369 8.38095 0 7.56548 0 6.71429C0 5.86309 0.16369 5.05059 0.491071 4.27678C0.824405 3.49702 1.27083 2.82738 1.83036 2.26786C2.39583 1.70238 3.06548 1.25595 3.83929 0.928571C4.61905 0.595237 5.43452 0.428571 6.28571 0.428571C7.13691 0.428571 7.94941 0.595237 8.72322 0.928571C9.50298 1.25595 10.1726 1.70238 10.7321 2.26786C11.2976 2.82738 11.744 3.49702 12.0714 4.27678C12.4048 5.05059 12.5714 5.86309 12.5714 6.71429C12.5714 8.02381 12.2024 9.21131 11.4643 10.2768L14.5268 13.3393C14.747 13.5595 14.8571 13.8274 14.8571 14.1429Z" fill="currentColor"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <ul class="nav listing__tab--btn">
+                                    <li class="nav-item listing__tab--btn__list">
+                                        <button class="listing__tab--btn__field " data-bs-toggle="tab" data-bs-target="#list" type="button"> <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip0_393_19356)">
+                                            <path d="M19.9528 18.125H5.91016C5.33139 18.125 4.8623 17.6559 4.8623 17.0771C4.8623 16.4984 5.33139 16.0293 5.91016 16.0293H19.9524C20.5312 16.0293 21.0003 16.4984 21.0003 17.0771C21.0003 17.6559 20.5315 18.125 19.9528 18.125Z" fill="currentColor"/>
+                                            <path d="M19.9528 11.5479H5.91016C5.33139 11.5479 4.8623 11.0788 4.8623 10.5C4.8623 9.92124 5.33139 9.45215 5.91016 9.45215H19.9524C20.5312 9.45215 21.0003 9.92124 21.0003 10.5C21.0006 11.0788 20.5315 11.5479 19.9528 11.5479Z" fill="currentColor"/>
+                                            <path d="M19.9528 4.9707H5.91016C5.33139 4.9707 4.8623 4.50162 4.8623 3.92285C4.8623 3.34409 5.33139 2.875 5.91016 2.875H19.9524C20.5312 2.875 21.0003 3.34409 21.0003 3.92285C21.0003 4.50162 20.5315 4.9707 19.9528 4.9707Z" fill="currentColor"/>
+                                            <path d="M1.40726 5.41121C2.18448 5.41121 2.81453 4.78116 2.81453 4.00394C2.81453 3.22673 2.18448 2.59668 1.40726 2.59668C0.630054 2.59668 0 3.22673 0 4.00394C0 4.78116 0.630054 5.41121 1.40726 5.41121Z" fill="currentColor"/>
+                                            <path d="M1.40726 11.9073C2.18448 11.9073 2.81453 11.2772 2.81453 10.5C2.81453 9.72283 2.18448 9.09277 1.40726 9.09277C0.630054 9.09277 0 9.72283 0 10.5C0 11.2772 0.630054 11.9073 1.40726 11.9073Z" fill="currentColor"/>
+                                            <path d="M1.40726 18.4034C2.18448 18.4034 2.81453 17.7733 2.81453 16.9961C2.81453 16.2189 2.18448 15.5889 1.40726 15.5889C0.630054 15.5889 0 16.2189 0 16.9961C0 17.7733 0.630054 18.4034 1.40726 18.4034Z" fill="currentColor"/>
+                                            </g>
+                                            <defs>
+                                            <clipPath id="clip0_393_19356">
+                                            <rect width="21" height="21" fill="white"/>
+                                            </clipPath>
+                                            </defs>
+                                            </svg>                                                
+                                        </button>
+                                    </li>
+                                    <li class="nav-item listing__tab--btn__list">
+                                        <button class="listing__tab--btn__field active" data-bs-toggle="tab" data-bs-target="#grid" type="button">
+                                            <svg width="19" height="20" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M6.15776 0H2.06224C0.925133 0 0 0.972462 0 2.16775V6.47278C0 7.66806 0.925133 8.64052 2.06224 8.64052H6.15776C7.29487 8.64052 8.22 7.66806 8.22 6.47278V2.16775C8.22 0.972462 7.29487 0 6.15776 0ZM6.82678 6.47278C6.82678 6.86054 6.52665 7.17603 6.15776 7.17603H2.06224C1.69335 7.17603 1.39322 6.86054 1.39322 6.47278V2.16775C1.39322 1.77998 1.69335 1.4645 2.06224 1.4645H6.15776C6.52665 1.4645 6.82678 1.77998 6.82678 2.16775V6.47278Z" fill="currentColor"/>
+                                                <path d="M16.9114 0H12.8711C11.7187 0 10.7812 0.985459 10.7812 2.19674V6.44378C10.7812 7.65506 11.7187 8.64052 12.8711 8.64052H16.9114C18.0638 8.64052 19.0013 7.65506 19.0013 6.44378V2.19674C19.0013 0.985459 18.0638 0 16.9114 0ZM17.608 6.44378C17.608 6.84754 17.2955 7.17603 16.9114 7.17603H12.8711C12.487 7.17603 12.1745 6.84754 12.1745 6.44378V2.19674C12.1745 1.79298 12.487 1.4645 12.8711 1.4645H16.9114C17.2955 1.4645 17.608 1.79298 17.608 2.19674V6.44378Z" fill="currentColor"/>
+                                                <path d="M6.15776 11.333H2.06224C0.925133 11.333 0 12.3055 0 13.5008V17.8058C0 19.0011 0.925133 19.9735 2.06224 19.9735H6.15776C7.29487 19.9735 8.22 19.0011 8.22 17.8058V13.5008C8.22 12.3055 7.29487 11.333 6.15776 11.333ZM6.82678 17.8058C6.82678 18.1935 6.52665 18.509 6.15776 18.509H2.06224C1.69335 18.509 1.39322 18.1935 1.39322 17.8058V13.5008C1.39322 13.113 1.69335 12.7975 2.06224 12.7975H6.15776C6.52665 12.7975 6.82678 13.113 6.82678 13.5008V17.8058Z" fill="currentColor"/>
+                                                <path d="M16.9114 11.333H12.8711C11.7187 11.333 10.7812 12.3185 10.7812 13.5298V17.7768C10.7812 18.9881 11.7187 19.9735 12.8711 19.9735H16.9114C18.0638 19.9735 19.0013 18.9881 19.0013 17.7768V13.5298C19.0013 12.3185 18.0638 11.333 16.9114 11.333ZM17.608 17.7768C17.608 18.1805 17.2955 18.509 16.9114 18.509H12.8711C12.487 18.509 12.1745 18.1805 12.1745 17.7768V13.5298C12.1745 13.126 12.487 12.7975 12.8711 12.7975H16.9114C17.2955 12.7975 17.608 13.126 17.608 13.5298V17.7768Z" fill="currentColor"/>
+                                                </svg>
+                                            </button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="listing__main--content">
+                            <div class="tab-content">
+                                <div class="tab-pane fade show active" id="grid">
+                                    <div class="listing__featured--grid">
+                                        <div class="row mb--n30">
+                                            {% for hall in halls %}
+                                                {% include "components/grid__card.html" with hall=hall %}
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="list">
+                                    <div class="listing__featured--list">
+                                        {% for hall in halls %}
+                                            {% include "components/list__card.html" with hall=hall %}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            {% include "pagination.html" %}
+
+                        </div>
+                    </div>
+                </div>
+                {% comment %} <div class="col-lg-4">
+                    <div class="listing__widget">
+                        <div class="widget__search mb-30">
+                            <div class="widget__search--input position-relative">
+                                <input class="widget__search--input__field" placeholder="Search product" type="text">
+                                <button class="widget__search--btn"><svg width="16" height="17" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.10714 9.54464C9.89286 8.75893 10.2857 7.81548 10.2857 6.71429C10.2857 5.61309 9.89286 4.67262 9.10714 3.89286C8.32738 3.10714 7.38691 2.71428 6.28571 2.71428C5.18452 2.71428 4.24107 3.10714 3.45536 3.89286C2.6756 4.67262 2.28571 5.61309 2.28571 6.71429C2.28571 7.81548 2.6756 8.75893 3.45536 9.54464C4.24107 10.3244 5.18452 10.7143 6.28571 10.7143C7.38691 10.7143 8.32738 10.3244 9.10714 9.54464ZM14.8571 14.1429C14.8571 14.4524 14.744 14.7202 14.5179 14.9464C14.2917 15.1726 14.0238 15.2857 13.7143 15.2857C13.3929 15.2857 13.125 15.1726 12.9107 14.9464L9.84822 11.8929C8.78274 12.631 7.59524 13 6.28571 13C5.43452 13 4.61905 12.8363 3.83929 12.5089C3.06548 12.1756 2.39583 11.7292 1.83036 11.1696C1.27083 10.6042 0.824405 9.93452 0.491071 9.16071C0.16369 8.38095 0 7.56548 0 6.71429C0 5.86309 0.16369 5.05059 0.491071 4.27678C0.824405 3.49702 1.27083 2.82738 1.83036 2.26786C2.39583 1.70238 3.06548 1.25595 3.83929 0.928571C4.61905 0.595237 5.43452 0.428571 6.28571 0.428571C7.13691 0.428571 7.94941 0.595237 8.72322 0.928571C9.50298 1.25595 10.1726 1.70238 10.7321 2.26786C11.2976 2.82738 11.744 3.49702 12.0714 4.27678C12.4048 5.05059 12.5714 5.86309 12.5714 6.71429C12.5714 8.02381 12.2024 9.21131 11.4643 10.2768L14.5268 13.3393C14.747 13.5595 14.8571 13.8274 14.8571 14.1429Z" fill="currentColor"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="listing__widget--inner">
+                            <div class="widget__list mb-30">
+                                <h2 class="widget__title mb-15">Product Catagories</h2>
+                                <ul class="widget__catagories">
+                                    <li class="widget__catagories__list">
+                                        <label class="widget__catagories--label" for="check1">Apartment (8)</label>
+                                        <input class="widget__catagories--input" id="check1" type="checkbox">
+                                        <span class="widget__catagories--checkmark"></span>
+                                    </li>
+                                    <li class="widget__catagories__list">
+                                        <label class="widget__catagories--label" for="check2">container home (5) </label>
+                                        <input class="widget__catagories--input" id="check2" type="checkbox">
+                                        <span class="widget__catagories--checkmark"></span>
+                                    </li>
+                                    <li class="widget__catagories__list">
+                                        <label class="widget__catagories--label" for="check3">Tiny home (5) </label>
+                                        <input class="widget__catagories--input" id="check3" type="checkbox">
+                                        <span class="widget__catagories--checkmark"></span>
+                                    </li>
+                                    <li class="widget__catagories__list">
+                                        <label class="widget__catagories--label" for="check4">Duplex Modern Houses (7)</label>
+                                        <input class="widget__catagories--input" id="check4" type="checkbox">
+                                        <span class="widget__catagories--checkmark"></span>
+                                    </li>
+                                    <li class="widget__catagories__list">
+                                        <label class="widget__catagories--label" for="check5">Villa Type (1)</label>
+                                        <input class="widget__catagories--input" id="check5" type="checkbox">
+                                        <span class="widget__catagories--checkmark"></span>
+                                    </li>
+                                    <li class="widget__catagories__list">
+                                        <label class="widget__catagories--label" for="check6">Cosmetics (6)</label>
+                                        <input class="widget__catagories--input" id="check6" type="checkbox">
+                                        <span class="widget__catagories--checkmark"></span>
+                                    </li>
+                                    <li class="widget__catagories__list">
+                                        <label class="widget__catagories--label" for="check7">condo (2)</label>
+                                        <input class="widget__catagories--input" id="check7" type="checkbox">
+                                        <span class="widget__catagories--checkmark"></span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="widget__list mb-40">
+                                <h2 class="widget__title mb-30">Price Filtering</h2>
+                                <div class="widget__price--filtering">
+                                    <div class="price-input">
+                                        <input type="number" class="input-min" value="2500">
+                                        <div class="separator">-</div>
+                                        <input type="number" class="input-max" value="7500">
+                                    </div>
+                                    <div class="price-slider">
+                                        <div class="progress"></div>
+                                    </div>
+                                    <div class="range-input">
+                                        <input type="range" class="range-min" min="0" max="10000" value="2500" step="100">
+                                        <input type="range" class="range-max" min="0" max="10000" value="7500" step="100">
+                                    </div>
+                                    <button class="price__filtering--btn">Filter</button>
+                                </div>
+                            </div>
+                            <div class="widget__list mb-40">
+                                <div class="widget__thumbnail">
+                                    <a class="widget__thumbnail--link" href="listing-details.html"><img class="widget__thumbnail--media" src="assets/img/other/sidebar-widget-thumb.png" alt="img">
+
+                                        <div class="widget__thumbnail--text">
+                                            <h3 class="widget__thumbnail--title">California</h3>
+                                            <span class="widget__thumbnail--subtitle">13 Properties <svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M17.4219 1.62805L17.3926 13.9757C17.3918 14.3282 17.2595 14.6594 17.0207 14.9093C16.7816 15.1594 16.4657 15.2964 16.1306 15.2957L15.0639 15.2927C14.729 15.292 14.4135 15.1531 14.1757 14.9019C13.938 14.6508 13.8 14.3105 13.801 13.9585L13.8106 6.74716L2.89752 18.1612C2.40548 18.6758 1.63343 18.6776 1.14372 18.1602L0.391553 17.3656C-0.0981567 16.8482 -0.131297 15.9959 0.360739 15.4813L11.3128 4.02645L4.39453 4.02088C4.05935 4.01986 3.74986 3.88742 3.51206 3.6362C3.27453 3.38526 3.14693 3.05595 3.14777 2.70376L3.15202 1.58437C3.15286 1.2319 3.28561 0.901459 3.52473 0.651356C3.76359 0.401531 4.07993 0.264768 4.41525 0.26565L16.1618 0.296578C16.4981 0.297602 16.8147 0.437285 17.0521 0.689475C17.2914 0.941255 17.423 1.27475 17.4219 1.62805Z" fill="currentColor"/>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="widget__list mb-40">
+                                <h2 class="widget__title mb-30">Find By Location</h2>
+                                <ul class="widget__location">
+                                    <li class="widget__location--list">
+                                        <label class="widget__location--label" for="check8">Australia</label>
+                                        <input class="widget__catagories--input" id="check8" type="checkbox">
+                                        <span class="widget__catagories--checkmark"></span>
+                                    </li>
+                                    <li class="widget__location--list">
+                                        <label class="widget__location--label" for="check9">Swezarland </label>
+                                        <input class="widget__catagories--input" id="check9" type="checkbox">
+                                        <span class="widget__catagories--checkmark"></span>
+                                    </li>
+                                    <li class="widget__location--list">
+                                        <label class="widget__location--label" for="check10">India </label>
+                                        <input class="widget__catagories--input" id="check10" type="checkbox">
+                                        <span class="widget__catagories--checkmark"></span>
+                                    </li>
+                                    <li class="widget__location--list">
+                                        <label class="widget__location--label" for="check11">California</label>
+                                        <input class="widget__catagories--input" id="check11" type="checkbox">
+                                        <span class="widget__catagories--checkmark"></span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="widget__list">
+                                <h2 class="widget__title mb-30">Featured Items</h2>
+                                <div class="widget__featured">
+                                    <div class="widget__featured--items d-flex">
+                                        <div class="widget__featured--thumb">
+                                            <a class="widget__featured--thumb__link" href="listing-details.html"><img class="widget__featured--media" src="assets/img/property/featured1.jpg" alt="img"></a>
+                                        </div>
+                                        <div class="widget__featured--content">
+                                            <h3 class="widget__featured--title"><a href="listing-details.html">am tempus turpis at
+                                                metus</a></h3>
+                                            <span class="widget__featured--price">$2,745 /mo</span>
+                                        </div>
+                                    </div>
+                                    <div class="widget__featured--items d-flex">
+                                        <div class="widget__featured--thumb">
+                                            <a class="widget__featured--thumb__link" href="listing-details.html"><img class="widget__featured--media" src="assets/img/property/featured2.jpg" alt="img"></a>
+                                        </div>
+                                        <div class="widget__featured--content">
+                                            <h3 class="widget__featured--title"><a href="listing-details.html">tos lobortis des mollis ut risus</a></h3>
+                                            <span class="widget__featured--price">$4,749 /mo</span>
+                                        </div>
+                                    </div>
+                                    <div class="widget__featured--items d-flex">
+                                        <div class="widget__featured--thumb">
+                                            <a class="widget__featured--thumb__link" href="listing-details.html"><img class="widget__featured--media" src="assets/img/property/featured3.jpg" alt="img"></a>
+                                        </div>
+                                        <div class="widget__featured--content">
+                                            <h3 class="widget__featured--title"><a href="listing-details.html">ut labore et dolore magna aliqua.</a></h3>
+                                            <span class="widget__featured--price">$2,745 /mo</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> {% endcomment %}
+            </div>
+        </div>
+    </section>
+    <!-- Listing page section . -->
+
+    {% include "footer.html" %}
+
+</main>
+{% endblock content %}
