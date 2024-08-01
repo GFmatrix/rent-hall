@@ -6,6 +6,7 @@ from django.views.generic import View, ListView, DetailView, TemplateView
 from django.http import JsonResponse
 from django.utils.html import format_html
 from django.conf import settings
+from django.db.models import Q, Case, When, Value, IntegerField
 
 import os
 import io
@@ -22,8 +23,31 @@ locale.setlocale(locale.LC_TIME, 'uz_UZ.UTF-8')
 class HallList(ListView):
     model = Hall
     context_object_name = 'halls'
+    ordering = ['-created_at']
     template_name = 'index.html'
     paginate_by = 6
+    
+    def get_queryset(self):
+        query = self.request.GET.get('name')
+        object_list = self.model.objects
+        if query:
+            return object_list.annotate(
+                relevance=Case(
+                    When(name__icontains=query, then=Value(2)),
+                    When(description__icontains=query, then=Value(1)),
+                    default=Value(0),
+                    output_field=IntegerField(),
+                )
+            ).filter(
+                Q(name__icontains=query) | Q(description__icontains=query)
+            ).order_by('-relevance', '-created_at')
+        return object_list.all().order_by('-created_at')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if query := self.request.GET.get('name'):
+            context["name"] = query
+        return context
     
 class HallDetail(DetailView):
     model = Hall
@@ -58,8 +82,8 @@ class HallDetail(DetailView):
                 messages.error(request, error)
             return redirect('detail', pk=kwargs.get('pk'))
         
-        scheme = request.scheme  # 'http' or 'https'
-        host = request.get_host()  # 'example.com' or 'example.com:8000'
+        scheme = request.scheme
+        host = request.get_host()
         full_url = f"{scheme}://{host}/application/{UUID}"
         
         message_text = f'Ariza muvaffaqiyatli yuborildi, iltimos Ariza ID ({UUID}) ni saqlab quying, ariza holatini <a href="{full_url}" class="text-decoration-underline">{full_url}</a> orqali tekshirishingiz mumkin'
@@ -101,7 +125,6 @@ class ApplicationFile(View):
         total_sum = int(hall.price) * rent_days
         total_sum_format = f"{total_sum:,}".replace(',', ' ')
         hall_location = hall.location()
-        # Define the context for the template
         context = {
             'contract_number':application.id,
             'hall_name': hall.name,
@@ -122,16 +145,13 @@ class ApplicationFile(View):
             'total_sum': total_sum_format
         }
         
-        # Load the template
         template = DocxTemplate(os.path.join(settings.BASE_DIR, 'static', 'assets', 'doc', 'template.docx'))
         template.render(context)
 
-        # Save the rendered document to an in-memory file
         doc_io = io.BytesIO()
         template.save(doc_io)
         doc_io.seek(0)
 
-        # Serve the document as a downloadable file
         response = HttpResponse(doc_io.read(), content_type='application/vnd.openxmlformats-officedocument.wordprocessingml.document')
         response['Content-Disposition'] = 'attachment; filename="Shartnoma.docx"'
         return response

@@ -1,8 +1,9 @@
-import datetime
+
 import os
 import random
 import string
 import uuid
+from django.utils.timezone import now
 from django.db import models
 from django.urls import reverse_lazy
 
@@ -50,7 +51,7 @@ class Hall(models.Model):
     district = models.ForeignKey(District, on_delete=models.SET_NULL, null=True, verbose_name='Tuman')
     address = models.CharField(max_length=200, verbose_name='Manzil')
     size = models.CharField(max_length=200, verbose_name='Hajmi/m2')
-    google_map = models.URLField(blank=True, null=True, verbose_name='Google map havolasi')
+    google_map = models.URLField(max_length=400,blank=True, null=True, verbose_name='Google map havolasi')
     availability = models.BooleanField(default=True, verbose_name='Mavjudligi')
     view_count = models.PositiveIntegerField(default=0, editable=False, verbose_name='Ko\'rishlar soni')
     
@@ -67,18 +68,29 @@ class Hall(models.Model):
         return f"{self.region}, {self.district}, {self.address}"
     
     def uploaded(self):
-        now = datetime.datetime.now()
-        years = now.year - self.created_at.year
-        months = now.month - self.created_at.month
-        days = now.day - self.created_at.day
-        hours = now.hour - self.created_at.hour
-        minutes = now.minute - self.created_at.minute
-        if years > 0: return f"{years} yil oldin"
-        elif months > 0: return f"{months} oy oldin"
-        elif days > 0: return f"{days} kun oldin"
-        elif hours > 0: return f"{hours} soat oldin"
-        elif minutes > 0: return f"{minutes} minut oldin"
-        else: return "Hozir"
+        delta = now() - self.created_at
+        if delta.days >= 365:
+            years = delta.days // 365
+            return f"{years} yil oldin"
+        elif delta.days >= 30:
+            months = delta.days // 30
+            return f"{months} oy oldin"
+        elif delta.days >= 1:
+            return f"{delta.days} kun oldin"
+        elif delta.seconds >= 3600:
+            hours = delta.seconds // 3600
+            return f"{hours} soat oldin"
+        elif delta.seconds >= 60:
+            minutes = delta.seconds // 60
+            return f"{minutes} daqiqa oldin"
+        else:
+            return "Hozir"
+
+    def delete(self, *args, **kwargs):
+        if self.image and self.image.storage:
+            if os.path.isfile(self.image.path):
+                os.remove(self.image.path)
+        super().delete(*args, **kwargs)
 
     class Meta:
         verbose_name = 'Zal'

@@ -6,7 +6,7 @@ from django.shortcuts import redirect
 
 class HallImageInline(admin.TabularInline):
     model = HallImage
-    extra = 0 # Number of extra forms to display
+    extra = 0
 
 class ApplicationHallImageInline(admin.TabularInline):
     model = Application
@@ -15,7 +15,7 @@ class ApplicationHallImageInline(admin.TabularInline):
     show_change_link = True
     readonly_fields = ('application_id','name','created_at',)
     can_delete = False
-    extra = 0 # Number of extra forms to display
+    extra = 0
 
 @admin.register(Hall)
 class HallAdmin(admin.ModelAdmin):
@@ -29,7 +29,6 @@ class HallAdmin(admin.ModelAdmin):
         return obj.applications.count()
     
     application_count.short_description = 'Arizalar soni'
-
 
 
 class ApplicationAdmin(admin.ModelAdmin):
