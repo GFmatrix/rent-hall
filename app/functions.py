@@ -1,5 +1,4 @@
 def number_to_text_uzbek(n):
-    # Textual representation of numbers in Uzbek
     units = ["", "bir", "ikki", "uch", "to'rt", "besh", "olti", "yetti", "sakkiz", "to'qqiz"]
     tens = ["", "o'n", "yigirma", "o'ttiz", "qirq", "ellik", "oltmish", "yetmish", "sakson", "to'qson"]
     thousands = ["", "ming", "million", "milliard"]
@@ -23,7 +22,6 @@ def number_to_text_uzbek(n):
                 group_text.append(units[hundreds] + " yuz")
 
             if remainder >= 10 and remainder < 20:
-                # Special case for numbers between 10 and 19
                 group_text.append(tens[1] + " " + units[remainder % 10])
             elif remainder >= 20:
                 group_text.append(tens[remainder // 10])
